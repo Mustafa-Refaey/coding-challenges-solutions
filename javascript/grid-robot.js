@@ -28,37 +28,54 @@ function gridRobot(grid) {
 
 /**
  * @param {number[][]} grid
- * @param {number[]} currentCell
+ * @param {number[]} bottomRight
  * @returns {number[][] | boolean }
  */
-function pathToTopLeft(grid, currentCell) {
-    const currentRow = currentCell[0];
-    const currentColumn = currentCell[1];
-    // if it reached topLeft
-    if (currentRow === 0 && currentColumn === 0) {
-        return [[0, 0]];
-    }
+function pathToTopLeft(grid, bottomRight) {
+    const badCells = {};
 
-    // if current cell's value is `0`
-    if (grid[currentRow][currentColumn] === 0) {
+    const recursivePathToTopLeft = currentCell => {
+        // check if it's a bad cell
+        if (badCells[currentCell.toString()]) {
+            return false;
+        }
+
+        const currentRow = currentCell[0];
+        const currentColumn = currentCell[1];
+        // if it reached topLeft
+        if (currentRow === 0 && currentColumn === 0) {
+            return [currentCell];
+        }
+
+        // if current cell's value is `0`
+        if (grid[currentRow][currentColumn] === 0) {
+            badCells[currentCell.toString()] = true;
+            return false;
+        }
+
+        // can we go up ?
+        if (currentRow > 0) {
+            const topPath = recursivePathToTopLeft([currentRow - 1, currentColumn]);
+            if (topPath !== false) {
+                return [...topPath, currentCell];
+            }
+        }
+
+        // can we go left ?
+        if (currentColumn > 0) {
+            const leftPath = recursivePathToTopLeft([currentRow, currentColumn - 1]);
+            if (leftPath !== false) {
+                return [...leftPath, currentCell];
+            }
+        }
+
+        // if it reached here, then it's a bad cell
+        badCells[currentCell.toString()] = true;
         return false;
-    }
+    };
 
-    if (currentRow > 0) {
-        const topPath = pathToTopLeft(grid, [currentRow - 1, currentColumn]);
-        if (topPath !== false) {
-            return [...topPath, currentCell];
-        }
-    }
-
-    if (currentColumn > 0) {
-        const leftPath = pathToTopLeft(grid, [currentRow, currentColumn - 1]);
-        if (leftPath !== false) {
-            return [...leftPath, currentCell];
-        }
-    }
-
-    return false;
+    // initiate the recursive call to find a path to the top left
+    return recursivePathToTopLeft(bottomRight);
 }
 
 module.exports = gridRobot;
