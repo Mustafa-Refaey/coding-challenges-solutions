@@ -14,7 +14,7 @@ const { mergeSort } = require("./helpers");
  * returns the maximum possible profit from one transaction during this period.
  * The function should return 0 if it was impossible to gain any profit.
  *
- * @param {number} dailyPrices
+ * @param {number[]} dailyPrices
  * @return {number}
  */
 function maxProfit(dailyPrices) {
