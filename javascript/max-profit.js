@@ -1,5 +1,3 @@
-const { mergeSort } = require("./helpers");
-
 /**
  * From: https://app.codility.com/programmers/lessons/9-maximum_slice_problem/max_profit/
  *
@@ -18,24 +16,24 @@ const { mergeSort } = require("./helpers");
  * @return {number}
  */
 function maxProfit(dailyPrices) {
-    if (dailyPrices.length < 2) {
-        return 0;
+  if (dailyPrices.length < 2) {
+    return 0;
+  }
+
+  let maxProfit = 0;
+  let buyPrice = dailyPrices[0];
+
+  for (let i = 1; i < dailyPrices.length; i++) {
+    if (dailyPrices[i] < buyPrice) {
+      buyPrice = dailyPrices[i];
+    } else if (dailyPrices[i] > buyPrice) {
+      if (dailyPrices[i] - buyPrice > maxProfit) {
+        maxProfit = dailyPrices[i] - buyPrice;
+      }
     }
+  }
 
-    let maxProfit = 0;
-    let buyPrice = dailyPrices[0];
-
-    for (let i = 1; i < dailyPrices.length; i++) {
-        if (dailyPrices[i] < buyPrice) {
-            buyPrice = dailyPrices[i];
-        } else if (dailyPrices[i] > buyPrice) {
-            if (dailyPrices[i] - buyPrice > maxProfit) {
-                maxProfit = dailyPrices[i] - buyPrice;
-            }
-        }
-    }
-
-    return maxProfit;
+  return maxProfit;
 }
 
 module.exports = maxProfit;
