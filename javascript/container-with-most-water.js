@@ -34,4 +34,4 @@ function containerWithMostWater(heights) {
   return maxArea;
 }
 
-module.exports = containerWithMostWater;
+export default containerWithMostWater;

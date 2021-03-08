@@ -9,25 +9,25 @@
  * @return {number}
  */
 function tripleStep(stairsCount) {
-    if (stairsCount <= 2) {
-        return stairsCount;
-    } else if (stairsCount === 3) {
-        return 4;
-    }
+  if (stairsCount <= 2) {
+    return stairsCount;
+  } else if (stairsCount === 3) {
+    return 4;
+  }
 
-    let a = 1;
-    let b = 2;
-    let c = 4;
-    let totalPossibleWays = 0;
+  let a = 1;
+  let b = 2;
+  let c = 4;
+  let totalPossibleWays = 0;
 
-    for (let i = 4; i <= stairsCount; i++) {
-        totalPossibleWays = a + b + c;
-        a = b;
-        b = c;
-        c = totalPossibleWays;
-    }
+  for (let i = 4; i <= stairsCount; i++) {
+    totalPossibleWays = a + b + c;
+    a = b;
+    b = c;
+    c = totalPossibleWays;
+  }
 
-    return totalPossibleWays;
+  return totalPossibleWays;
 }
 
-module.exports = tripleStep;
+export default tripleStep;

@@ -38,4 +38,4 @@ function trappingRainWater(heights) {
   return waterTotalArea;
 }
 
-module.exports = trappingRainWater;
+export default trappingRainWater;

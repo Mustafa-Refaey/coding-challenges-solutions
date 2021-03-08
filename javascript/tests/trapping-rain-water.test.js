@@ -1,4 +1,4 @@
-const trappingRainWater = require("../trapping-rain-water");
+import trappingRainWater from "../trapping-rain-water";
 
 let heights = [];
 test("should return the trapped water total area", () => {

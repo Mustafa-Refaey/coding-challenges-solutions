@@ -36,4 +36,4 @@ function maxProfit(dailyPrices) {
   return maxProfit;
 }
 
-module.exports = maxProfit;
+export default maxProfit;

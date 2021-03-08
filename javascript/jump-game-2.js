@@ -11,34 +11,34 @@
  * @returns {number}
  */
 function jumpGame2(nums) {
-    // make the hash table
-    const indicesJumps = buildIndicesJumps(nums);
-    let jumpsCount = 0;
+  // make the hash table
+  const indicesJumps = buildIndicesJumps(nums);
+  let jumpsCount = 0;
 
-    let i = 0;
-    while (i < nums.length - 1) {
-        jumpsCount++;
-        let maxIndex = -1;
+  let i = 0;
+  while (i < nums.length - 1) {
+    jumpsCount++;
+    let maxIndex = -1;
 
-        for (let x = i + 1; x <= indicesJumps[i] && x < nums.length; x++) {
-            if (
-                maxIndex === -1 ||
-                indicesJumps[x] >= indicesJumps[maxIndex] ||
-                x === nums.length - 1
-            ) {
-                maxIndex = x;
-            }
-        }
-
-        if (maxIndex <= i) {
-            // we can not reach the last index
-            return -1;
-        }
-
-        i = maxIndex;
+    for (let x = i + 1; x <= indicesJumps[i] && x < nums.length; x++) {
+      if (
+        maxIndex === -1 ||
+        indicesJumps[x] >= indicesJumps[maxIndex] ||
+        x === nums.length - 1
+      ) {
+        maxIndex = x;
+      }
     }
 
-    return jumpsCount;
+    if (maxIndex <= i) {
+      // we can not reach the last index
+      return -1;
+    }
+
+    i = maxIndex;
+  }
+
+  return jumpsCount;
 }
 
 /**
@@ -47,13 +47,13 @@ function jumpGame2(nums) {
  * @returns {Object} {index: farest_reachable_index}
  */
 function buildIndicesJumps(nums) {
-    let indicesJumps = {};
+  let indicesJumps = {};
 
-    for (let i = 0; i < nums.length; i++) {
-        indicesJumps[i] = i + nums[i];
-    }
+  for (let i = 0; i < nums.length; i++) {
+    indicesJumps[i] = i + nums[i];
+  }
 
-    return indicesJumps;
+  return indicesJumps;
 }
 
 // function jumpGame2(nums) {
@@ -111,4 +111,4 @@ function buildIndicesJumps(nums) {
 //     return lowestJumps;
 // }
 
-module.exports = jumpGame2;
+export default jumpGame2;

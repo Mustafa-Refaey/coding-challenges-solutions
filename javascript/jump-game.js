@@ -9,14 +9,14 @@
  * @return {boolean}
  */
 function jumpGame(nums) {
-    let prevJumpPos = nums.length - 1;
-    for (let currPos = nums.length - 2; currPos >= 0; --currPos) {
-        if (nums[currPos] >= prevJumpPos - currPos) {
-            prevJumpPos = currPos;
-        }
+  let prevJumpPos = nums.length - 1;
+  for (let currPos = nums.length - 2; currPos >= 0; --currPos) {
+    if (nums[currPos] >= prevJumpPos - currPos) {
+      prevJumpPos = currPos;
     }
+  }
 
-    return prevJumpPos === 0;
+  return prevJumpPos === 0;
 }
 
-module.exports = jumpGame;
+export default jumpGame;
