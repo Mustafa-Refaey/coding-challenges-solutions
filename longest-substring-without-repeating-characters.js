@@ -17,12 +17,15 @@ function longestSubstringWithoutRepeatingCharacters(s) {
   let leftPointer = 0;
   for (let rightPointer = 0; rightPointer < s.length; rightPointer++) {
     const currentChar = s[rightPointer];
-    if (seenCharsMap.hasOwnProperty(currentChar)) {
-      leftPointer = seenCharsMap[currentChar];
+    if (
+      seenCharsMap.hasOwnProperty(currentChar) &&
+      seenCharsMap[currentChar] >= leftPointer
+    ) {
+      leftPointer = seenCharsMap[currentChar] + 1;
     }
 
     seenCharsMap[currentChar] = rightPointer;
-    const currentWindowSize = rightPointer - leftPointer;
+    const currentWindowSize = rightPointer + 1 - leftPointer;
     if (currentWindowSize > longestUniqueStringLength) {
       longestUniqueStringLength = currentWindowSize;
     }
