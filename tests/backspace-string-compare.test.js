@@ -1,4 +1,4 @@
-import backspaceStringCompare from "../backspace-string-compare.js";
+import backspaceStringCompare from "../backspace-string-compare";
 
 let S = "";
 let T = "";
