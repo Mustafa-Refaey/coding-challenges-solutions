@@ -1,4 +1,4 @@
-import longestSubstringWithoutRepeatingCharacters from "../longest-substring-without-repeating-characters";
+import longestSubstringWithoutRepeatingCharacters from "../longest-substring-without-repeating-characters.js";
 let s = "";
 test("should return the length of the longest unique string", () => {
   let expectedLongestUniqueStringLength;

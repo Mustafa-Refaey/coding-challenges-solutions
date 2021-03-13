@@ -1,4 +1,4 @@
-import validPalindrome from "../valid-palindrome";
+import validPalindrome from "../valid-palindrome.js";
 
 let s = "";
 let expectedResult;

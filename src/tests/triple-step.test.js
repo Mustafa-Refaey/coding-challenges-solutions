@@ -1,4 +1,4 @@
-import tripleStep from "../triple-step";
+import tripleStep from "../triple-step.js";
 
 test("should return `1` if `stairsCount` is `1`", () => {
   expect(tripleStep(1)).toBe(1);

@@ -1,4 +1,4 @@
-import maxProfit from "../max-profit";
+import maxProfit from "../max-profit.js";
 
 test("should return `0` if `dailyPrices` array is empty", () => {
   expect(maxProfit([])).toBe(0);

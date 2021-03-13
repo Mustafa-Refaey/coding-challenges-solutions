@@ -1,4 +1,4 @@
-import jumpGame2 from "../jump-game-2";
+import jumpGame2 from "../jump-game-2.js";
 
 test("should return `-1` if last index is not reachable", () => {
   expect(jumpGame2([0, 1])).toBe(-1);

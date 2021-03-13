@@ -1,4 +1,4 @@
-import trappingRainWater from "../trapping-rain-water";
+import trappingRainWater from "../trapping-rain-water.js";
 
 let heights = [];
 test("should return the trapped water total area", () => {

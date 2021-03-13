@@ -1,4 +1,4 @@
-import gridRobot from "../grid-robot";
+import gridRobot from "../grid-robot.js";
 let grid = [];
 test("should return the path if the bottom right is reachable from the top left", () => {
   let expectedPath = [];

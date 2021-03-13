@@ -1,4 +1,4 @@
-import jumpGame from "../jump-game";
+import jumpGame from "../jump-game.js";
 
 test("should return true if the last index is reachable", () => {
   expect(jumpGame([2, 3, 1, 1, 4])).toBe(true);

@@ -1,4 +1,4 @@
-import containerWithMostWater from "../container-with-most-water";
+import containerWithMostWater from "../container-with-most-water.js";
 let heights = [];
 test("should return the area of the biggest container", () => {
   let expectedMaxArea;
